@@ -1,0 +1,19 @@
+{{ if (isset .Params "link") }}
+<a href='{{.Param "link" }}' target="_blank" title="{{.Title}}">
+{{ end }}
+  <li class="post">
+    {{.Content}}
+  {{ if (isset .Params "title") }}
+    <h2 class="post-title">
+      {{.Title}}
+    </h2>
+    {{end}}
+    {{ if (isset .Params "summary") }}
+    <aside>
+      {{.Summary}}
+    </aside>
+    {{end}}
+  </li>
+{{ if (isset .Params "link") }}
+</a>
+{{ end }}

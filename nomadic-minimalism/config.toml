@@ -1,0 +1,7 @@
+baseURL = "/"
+languageCode = "de"
+title = "nomadic minimalism"
+defaultContentLanguage = 'en'
+disableKinds = ["section", "taxonomy","taxonomyTerm","term", "RSS"]
+[permalinks]
+posts="/:filename/"

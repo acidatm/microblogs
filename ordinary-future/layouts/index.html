@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>{{.Title}}</title>
+    {{ partial "head.html" . }}
+  </head>
+  <body>
+    <h1>
+      {{.Title}}
+    </h1>
+    <h2>
+      {{.Content}}
+    </h2>
+    <main>
+        <ul>
+          {{$n := 0}}
+          {{ range .Resources.ByType "image" }}
+          {{if eq (mod $n 3) 0}}
+          <li>
+            <img src="{{.RelPermalink}}">
+          </li>
+          {{end}}
+          {{ $n = add $n 1 }}
+          {{end}}
+        </ul>
+        <ul>
+          {{$n := 0}}
+          {{ range .Resources.ByType "image" }}
+          {{if eq (mod $n 3) 1}}
+          <li>
+            <img src="{{.RelPermalink}}">
+          </li>
+          {{end}}
+          {{ $n = add $n 1 }}
+          {{end}}
+        </ul>
+        <ul>
+          {{$n := 0}}
+          {{ range .Resources.ByType "image" }}
+          {{if eq (mod $n 3) 2}}
+          <li>
+            <img src="{{.RelPermalink}}">
+          </li>
+          {{end}}
+          {{ $n = add $n 1 }}
+          {{end}}
+        </ul>
+      </main>
+    {{ $scripts := resources.Get "js/scripts.js" | fingerprint }}
+    <script src="{{ $scripts.Permalink }}"></script>
+  </body>
+</html>
